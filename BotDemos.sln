@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PigLatinBot", "PigLatinBot\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCBot", "PCBot\PCBot.csproj", "{CBCD3EA9-68A6-413A-B0C3-BEC8BBFC3FF5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BugDialogBot", "BugDialogBot\BugDialogBot.csproj", "{BCAC5414-6E58-4190-9C59-9DDAF0596B4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BugFormFlowBot1", "BugFormFlowBot1\BugFormFlowBot1.csproj", "{3DEEE0AE-FB44-4114-9B76-9C3C09F8C5BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{CBCD3EA9-68A6-413A-B0C3-BEC8BBFC3FF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBCD3EA9-68A6-413A-B0C3-BEC8BBFC3FF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBCD3EA9-68A6-413A-B0C3-BEC8BBFC3FF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCAC5414-6E58-4190-9C59-9DDAF0596B4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCAC5414-6E58-4190-9C59-9DDAF0596B4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCAC5414-6E58-4190-9C59-9DDAF0596B4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCAC5414-6E58-4190-9C59-9DDAF0596B4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DEEE0AE-FB44-4114-9B76-9C3C09F8C5BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DEEE0AE-FB44-4114-9B76-9C3C09F8C5BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DEEE0AE-FB44-4114-9B76-9C3C09F8C5BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DEEE0AE-FB44-4114-9B76-9C3C09F8C5BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
