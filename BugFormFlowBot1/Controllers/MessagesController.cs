@@ -14,7 +14,8 @@ namespace BugFormFlowBot1
     {
         internal static IDialog<BugReport> MakeRootDialog()
         {
-            return Chain.From(() => FormDialog.FromForm(BugReport.BuildForm));
+            return Chain.From(() => FormDialog.FromForm(BugReport.BuildForm))
+                        .Loop();
         }
 
         /// <summary>

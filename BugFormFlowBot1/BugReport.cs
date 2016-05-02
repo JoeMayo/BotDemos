@@ -9,7 +9,7 @@ namespace BugFormFlowBot1
     [Serializable]
     public class BugReport
     {
-        public List<ProductOptions> Product { get; set; }
+        public ProductOptions Product { get; set; }
 
         public List<PlatformOptions> Platform { get; set; }
 
@@ -19,6 +19,10 @@ namespace BugFormFlowBot1
         {
             return new FormBuilder<BugReport>()
                     .Message("Welcome to Bug Report bot!")
+                    .OnCompletionAsync(async (context, bugReport) => 
+                     {
+                        await context.PostAsync("Thanks for the report!");
+                     })
                     .Build();
         }
     }
