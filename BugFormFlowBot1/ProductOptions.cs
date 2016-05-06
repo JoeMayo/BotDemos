@@ -5,7 +5,7 @@ namespace BugFormFlowBot1
 {
     public enum ProductOptions
     {
-        Office,
+        Office = 1,
         SQLServer,
         VisualStudio
     }
