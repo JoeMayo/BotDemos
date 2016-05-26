@@ -14,9 +14,7 @@ namespace PigLatinBot
         {
             string webChatSecret = ConfigurationManager.AppSettings["WebChatSecret"];
 
-            //return GetIFrameWithSecret(webChatSecret);
-
-            return await GetIFrameWithToken(webChatSecret);
+            return await GetIFrameWithTokenAsync(webChatSecret);
 
             //return await GetIFrameViaPostWithToken(webChatSecret);
         }
@@ -27,7 +25,7 @@ namespace PigLatinBot
             return $"<iframe width='400px' height='400px' src='https://webchat.botframework.com/embed/PigLatinBotJoeMayo?s={webChatSecret}'></iframe>";
         }
 
-        async Task<string> GetIFrameWithToken(string webChatSecret)
+        async Task<string> GetIFrameWithTokenAsync(string webChatSecret)
         {
             var request = new HttpRequestMessage(HttpMethod.Get, "https://webchat.botframework.com/api/tokens");
             request.Headers.Add("Authorization", "BOTCONNECTOR " + webChatSecret);

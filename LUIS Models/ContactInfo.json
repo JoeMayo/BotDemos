@@ -1,0 +1,231 @@
+{
+  "luis_schema_version": "1.2.0",
+  "name": "ContactInfo",
+  "desc": "Helps maintain contact information",
+  "culture": "en-us",
+  "intents": [
+    {
+      "Name": "ChangeInfo",
+      "Children": []
+    },
+    {
+      "Name": "None",
+      "Children": []
+    }
+  ],
+  "entities": [
+    {
+      "Name": "ContactType",
+      "Children": []
+    }
+  ],
+  "bing_entities": [],
+  "actions": [],
+  "model_features": [
+    {
+      "name": "ContactTypeNames",
+      "mode": true,
+      "words": "name,first name,last name,middle name,title,email,email address,address,mail address,phone,phone number,windows phone,android,android phone,iPhone,iPhone number",
+      "activated": true
+    }
+  ],
+  "regex_features": [],
+  "utterances": [
+    {
+      "text": "can i change my name?",
+      "intent": "ChangeInfo",
+      "entities": [
+        {
+          "entity": "ContactType",
+          "startPos": 4,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "may i change my email",
+      "intent": "ChangeInfo",
+      "entities": [
+        {
+          "entity": "ContactType",
+          "startPos": 4,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "i would like to update my address",
+      "intent": "ChangeInfo",
+      "entities": [
+        {
+          "entity": "ContactType",
+          "startPos": 6,
+          "endPos": 6
+        }
+      ]
+    },
+    {
+      "text": "please update my phone",
+      "intent": "ChangeInfo",
+      "entities": [
+        {
+          "entity": "ContactType",
+          "startPos": 3,
+          "endPos": 3
+        }
+      ]
+    },
+    {
+      "text": "will you update my address?",
+      "intent": "ChangeInfo",
+      "entities": [
+        {
+          "entity": "ContactType",
+          "startPos": 4,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "i need to modify my name.",
+      "intent": "ChangeInfo",
+      "entities": [
+        {
+          "entity": "ContactType",
+          "startPos": 5,
+          "endPos": 5
+        }
+      ]
+    },
+    {
+      "text": "change my email please",
+      "intent": "ChangeInfo",
+      "entities": [
+        {
+          "entity": "ContactType",
+          "startPos": 2,
+          "endPos": 2
+        }
+      ]
+    },
+    {
+      "text": "update my address please",
+      "intent": "ChangeInfo",
+      "entities": [
+        {
+          "entity": "ContactType",
+          "startPos": 2,
+          "endPos": 2
+        }
+      ]
+    },
+    {
+      "text": "update my email",
+      "intent": "ChangeInfo",
+      "entities": [
+        {
+          "entity": "ContactType",
+          "startPos": 2,
+          "endPos": 2
+        }
+      ]
+    },
+    {
+      "text": "enter phone",
+      "intent": "ChangeInfo",
+      "entities": [
+        {
+          "entity": "ContactType",
+          "startPos": 1,
+          "endPos": 1
+        }
+      ]
+    },
+    {
+      "text": "i need to modify my mailing address",
+      "intent": "ChangeInfo",
+      "entities": [
+        {
+          "entity": "ContactType",
+          "startPos": 6,
+          "endPos": 6
+        }
+      ]
+    },
+    {
+      "text": "please update my last name",
+      "intent": "ChangeInfo",
+      "entities": [
+        {
+          "entity": "ContactType",
+          "startPos": 3,
+          "endPos": 3
+        },
+        {
+          "entity": "ContactType",
+          "startPos": 4,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "change my last name",
+      "intent": "ChangeInfo",
+      "entities": [
+        {
+          "entity": "ContactType",
+          "startPos": 2,
+          "endPos": 2
+        },
+        {
+          "entity": "ContactType",
+          "startPos": 3,
+          "endPos": 3
+        }
+      ]
+    },
+    {
+      "text": "change phone number",
+      "intent": "ChangeInfo",
+      "entities": [
+        {
+          "entity": "ContactType",
+          "startPos": 1,
+          "endPos": 1
+        },
+        {
+          "entity": "ContactType",
+          "startPos": 2,
+          "endPos": 2
+        }
+      ]
+    },
+    {
+      "text": "may i change my email?",
+      "intent": "ChangeInfo",
+      "entities": [
+        {
+          "entity": "ContactType",
+          "startPos": 4,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "may i change my email address?",
+      "intent": "ChangeInfo",
+      "entities": [
+        {
+          "entity": "ContactType",
+          "startPos": 4,
+          "endPos": 4
+        },
+        {
+          "entity": "ContactType",
+          "startPos": 5,
+          "endPos": 5
+        }
+      ]
+    }
+  ]
+}
