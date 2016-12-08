@@ -34,7 +34,7 @@ namespace BugFormFlowBot2
                             }))
                     .Field(nameof(Platform))
                     .AddRemainingFields()
-                    .OnCompletionAsync(async (context, bugReport) => 
+                    .OnCompletion(async (context, bugReport) => 
                      {
                         await context.PostAsync("Thanks for the report!");
                      })

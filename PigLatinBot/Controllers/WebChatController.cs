@@ -2,7 +2,9 @@
 using System;
 using System.Configuration;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -10,13 +12,17 @@ namespace PigLatinBot
 {
     public class WebChatController : ApiController
     {
-        public async Task<string> Get()
+        public async Task<HttpResponseMessage> Get()
         {
             string webChatSecret = ConfigurationManager.AppSettings["WebChatSecret"];
 
-            return await GetIFrameWithTokenAsync(webChatSecret);
+            string result = await GetIFrameWithTokenAsync(webChatSecret);
 
-            //return await GetIFrameViaPostWithToken(webChatSecret);
+            //string result = await GetIFrameViaPostWithToken(webChatSecret);
+
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK);
+            response.Content = new StringContent(result, Encoding.UTF8, "text/html");
+            return response;
         }
 
         string GetIFrameWithSecret(string webChatSecret)

@@ -19,7 +19,7 @@ namespace BugFormFlowBot1
         {
             return new FormBuilder<BugReport>()
                     .Message("Welcome to Bug Report bot!")
-                    .OnCompletionAsync(async (context, bugReport) => 
+                    .OnCompletion(async (context, bugReport) => 
                      {
                         await context.PostAsync("Thanks for the report!");
                      })

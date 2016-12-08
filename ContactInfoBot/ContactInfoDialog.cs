@@ -1,16 +1,14 @@
-﻿using Microsoft.Bot.Builder.Dialogs;
+﻿using System;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.Luis;
 using Microsoft.Bot.Builder.Luis.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ContactInfoBot
 {
-    [Serializable]
     [LuisModel("", "")]
+    [Serializable]
     public class ContactInfoDialog : LuisDialog<object>
     {
         public const string ContactType = "ContactType";

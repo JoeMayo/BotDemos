@@ -1,121 +1,87 @@
 ﻿using Microsoft.Bot.Connector;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PCBot
 {
     public class MessageHandler
     {
-        public Message React(Message eventMessage)
+        public Activity React(Activity activity)
         {
-            Message responseMessage = null;
+            Activity responseActivity = null;
 
-            BotEvent eventType = GetBotEvent(eventMessage.Type);
-
-            switch (eventType)
+            switch (activity.Type)
             {
-                case BotEvent.BotAddedToConversation:
-                    responseMessage = ReactToBotAdded(eventMessage);
+                case ActivityTypes.DeleteUserData:
+                    responseActivity = ReactToDeleteUser(activity);
                     break;
-                case BotEvent.BotRemovedFromConversation:
-                    responseMessage = ReactToBotRemoved(eventMessage);
+                case ActivityTypes.ConversationUpdate:
+                    responseActivity = ReactToConversationUpdate(activity);
                     break;
-                case BotEvent.DeleteUserData:
-                    responseMessage = ReactToDeleteUser(eventMessage);
+                case ActivityTypes.ContactRelationUpdate:
+                    responseActivity = ReactToContactRelationUpdate(activity);
                     break;
-                case BotEvent.EndOfConversation:
-                    responseMessage = ReactToEndConversation(eventMessage);
+                case ActivityTypes.Message:
+                    responseActivity = ReactToMessage(activity);
                     break;
-                case BotEvent.Message:
-                    responseMessage = ReactToMessage(eventMessage);
+                case ActivityTypes.Ping:
+                    responseActivity = ReactToPing(activity);
                     break;
-                case BotEvent.Ping:
-                    responseMessage = ReactToPing(eventMessage);
+                case ActivityTypes.Typing:
+                    responseActivity = ReactToUserRemoved(activity);
                     break;
-                case BotEvent.UserAddedToConversation:
-                    responseMessage = ReactToUserAdded(eventMessage);
-                    break;
-                case BotEvent.UserRemovedFromConversation:
-                    responseMessage = ReactToUserRemoved(eventMessage);
-                    break;
-                case BotEvent.Unknown:
                 default:
-                    responseMessage = ReactToUnknown(eventMessage);
+                    responseActivity = ReactToUnknown(activity);
                     break;
             }
 
-            responseMessage.Text += 
-                ", JSON: " + JsonConvert.SerializeObject(eventMessage);
+            responseActivity.Text += 
+                ", JSON: " + JsonConvert.SerializeObject(activity);
 
-            return responseMessage;
+            return responseActivity;
         }
 
-        Message ReactToBotAdded(Message eventMessage)
+        Activity ReactToDeleteUser(Activity activity)
         {
-            return eventMessage.CreateReplyMessage(
-                $"Bot Added From - Address: {eventMessage.From.Address}, Name: {eventMessage.From.Name}");
+            return activity.CreateReply(
+                $"User Deleted From - ID: {activity.From.Id}, Name: {activity.From.Name}");
         }
 
-        Message ReactToBotRemoved(Message eventMessage)
+        Activity ReactToConversationUpdate(Activity activity)
         {
-            return eventMessage.CreateReplyMessage(
-                $"Bot Removed From - ChanelId: {eventMessage.From.ChannelId}, Name: {eventMessage.From.Name}");
+            return activity.CreateReply(
+                $"Conversation Update From - " +
+                $"# Added: {activity.MembersAdded?.Count ?? 0}, " +
+                $"# Removed: {activity.MembersRemoved?.Count ?? 0}");
         }
 
-        Message ReactToDeleteUser(Message eventMessage)
+        Activity ReactToContactRelationUpdate(Activity activity)
         {
-            return eventMessage.CreateReplyMessage(
-                $"User Deleted From - Address: {eventMessage.From.Address}, Name: {eventMessage.From.Name}");
+            return activity.CreateReply(
+                $"Bot {activity.Action}ed");
         }
 
-        Message ReactToEndConversation(Message eventMessage)
+        Activity ReactToMessage(Activity activity)
         {
-            return eventMessage.CreateReplyMessage(
-                $"End Conversation From - Address: {eventMessage.From.Address}, Name: {eventMessage.From.Name}");
+            return activity.CreateReply(
+                $"Message From - ID: {activity.From.Id}, Name: {activity.From.Name}, Text: {activity.Text}");
         }
 
-        Message ReactToMessage(Message eventMessage)
+        Activity ReactToPing(Activity activity)
         {
-            return eventMessage.CreateReplyMessage(
-                $"Message From - Address: {eventMessage.From.Address}, Name: {eventMessage.From.Name}, Text: {eventMessage.Text}");
+            return activity.CreateReply(
+                $"Pingback From - ID: {activity.From.Id}, Name: {activity.From.Name}");
         }
 
-        Message ReactToPing(Message eventMessage)
+        Activity ReactToUserRemoved(Activity activity)
         {
-            return eventMessage.CreateReplyMessage(
-                $"Pingback From - Address: {eventMessage.From.Address}, Name: {eventMessage.From.Name}");
+            return activity.CreateReply(
+                $"I see that you're typing. I'll be annoying and interrupt you.");
         }
 
-        Message ReactToUserAdded(Message eventMessage)
+        Activity ReactToUnknown(Activity activity)
         {
-            return eventMessage.CreateReplyMessage(
-                $"User Added From - Address: {eventMessage.From.Address}, Name: {eventMessage.From.Name}");
-        }
-
-        Message ReactToUserRemoved(Message eventMessage)
-        {
-            return eventMessage.CreateReplyMessage(
-                $"User removed From - Address: {eventMessage.From.Address}, Name: {eventMessage.From.Name}");
-        }
-
-        Message ReactToUnknown(Message eventMessage)
-        {
-            return eventMessage.CreateReplyMessage(
-                "Please forgive me. I'm just a bot and don't understand.");
-        }
-
-        BotEvent GetBotEvent(string eventType)
-        {
-            BotEvent botEvent;
-
-            if (!Enum.TryParse<BotEvent>(eventType, out botEvent))
-                botEvent = BotEvent.Unknown;
-
-            return botEvent;
+            return activity.CreateReply(
+                text: "Please forgive me. I'm just a bot and don't understand.");
         }
     }
 }

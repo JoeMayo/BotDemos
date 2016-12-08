@@ -18,10 +18,10 @@ namespace BugDialogBot
             context.Wait(ConversationStartedAsync);
         }
 
-        public async Task ConversationStartedAsync(IDialogContext context, IAwaitable<Message> argument)
+        public async Task ConversationStartedAsync(IDialogContext context, IAwaitable<IMessageActivity> argument)
         {
-            Message message = await argument;
-            await context.PostAsync(message.Text);
+            IMessageActivity activity = await argument;
+            await context.PostAsync(activity.Text);
 
             PromptDialog.Choice(
                 context: context,
