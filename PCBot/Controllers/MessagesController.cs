@@ -14,9 +14,11 @@ namespace PCBot
         {
             var connector = new ConnectorClient(new Uri(activity.ServiceUrl));
 
-            Activity reply = new MessageHandler().React(activity);
+            Activity reply = await new MessageHandler().ReactAsync(activity);
 
-            await connector.Conversations.ReplyToActivityAsync(reply);
+            if (reply != null)
+                await connector.Conversations.ReplyToActivityAsync(reply);
+
             return Request.CreateResponse(HttpStatusCode.OK);
         }
     }
