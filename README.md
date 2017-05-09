@@ -10,7 +10,7 @@ This is a bare-bones bot that translates English to Pig Latin. The bot will repl
 
 ## PC Bot
 
-Demonstrates how to handle various Bot Framework Messages.
+Demonstrates how to handle various Bot Framework Activities.
 
 ## Bug Dialog Bot
 
@@ -22,7 +22,7 @@ Has a very basic FormFlow example.
 
 ## Bug FormFlow Bot #2
 
-Implements dynamic fields in FormFlow (e.g. selection based on DB options.)
+Implements dynamic fields in FormFlow (e.g. selection based on updatable data). Several other FormFlow customizations with attributes and more. 
 
 ## Contact Info Bot
 

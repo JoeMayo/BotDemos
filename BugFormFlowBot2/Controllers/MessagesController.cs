@@ -25,6 +25,16 @@ namespace BugFormFlowBot2
                 {
                     await Conversation.SendAsync(activity, MakeRootDialog);
                 }
+                catch (FormCanceledException fcEx) when(fcEx.InnerException is TooManyAttemptsException)
+                {
+                    ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));
+
+                    Activity reply = activity.CreateReply(
+                        $"Too Many Attempts at {fcEx.Last}. " +
+                        $"Completed Steps: {string.Join(", ", fcEx.Completed)}");
+
+                    await connector.Conversations.ReplyToActivityAsync(reply);
+                }
                 catch (FormCanceledException fcEx)
                 {
                     ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));
