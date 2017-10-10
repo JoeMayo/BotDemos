@@ -1,8 +1,8 @@
 ﻿using Autofac;
 using Microsoft.Bot.Builder.Dialogs;
-using Microsoft.Bot.Builder.Internals.Scorables;
 using Microsoft.Bot.Connector;
 using System.Web.Http;
+using Microsoft.Bot.Builder.Scorables;
 
 namespace BugDialogBot
 {

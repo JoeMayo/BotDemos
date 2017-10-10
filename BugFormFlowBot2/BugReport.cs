@@ -1,15 +1,13 @@
-﻿    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.Linq;
-    using Microsoft.Bot.Builder.FormFlow;
-    using Microsoft.Bot.Builder.Dialogs;
-    using Microsoft.Bot.Builder.FormFlow.Advanced;
-    using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.Bot.Builder.FormFlow;
+using Microsoft.Bot.Builder.Dialogs;
+using Microsoft.Bot.Builder.FormFlow.Advanced;
+using System.Threading.Tasks;
 
-    namespace BugFormFlowBot2
-    {
-        [Serializable]
+namespace BugFormFlowBot2
+{
+    [Serializable]
         [Template(TemplateUsage.EnumSelectOne, "Which {&} were you working with? {||}")]
         [Template(TemplateUsage.EnumSelectMany, "Which {&} were you working with? {||}", ChoiceStyle = ChoiceStyleOptions.PerLine)]
         public class BugReport
@@ -72,7 +70,7 @@
                         .Confirm(async (bugReport) =>
                          {
                              var response = new PromptAttribute(
-                                 $"You entered {bugReport.Product}, {bugReport.Version}, {bugReport.Platform}" +
+                                 $"You entered {bugReport.Product}, {bugReport.Version}, {string.Join(", ", bugReport.Platform)}" +
                                  $"{bugReport.ProblemDescription}, {bugReport.Priority}. Is this Correct?");
                              return await Task.FromResult(response);
                          })

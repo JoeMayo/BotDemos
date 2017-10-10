@@ -33,7 +33,7 @@ namespace PCBot
                     responseActivity = ReactToPing(activity);
                     break;
                 case ActivityTypes.Typing:
-                    responseActivity = ReactToUserRemoved(activity);
+                    responseActivity = ReactToUserTyping(activity);
                     break;
                 default:
                     responseActivity = ReactToUnknown(activity);
@@ -80,23 +80,19 @@ namespace PCBot
                 };
             }
 
-            // default response is null, indicating that we shouldn't reply.
-            Activity returnActivity = null;
-
             // if no record of previous visit, treat it as the first time.
             bool IsFirstVisit(UserInfo usr) => usr.LastVisit == default(DateTime);
 
-            if (IsFirstVisit(user))
-            {
-                bool IsChatbot(ChannelAccount channelAcct) => channelAcct.Id == activity.Recipient.Id;
+            // is the message addressed to the chatbot?
+            bool IsChatbot(ChannelAccount channelAcct) => channelAcct.Id == activity.Recipient.Id;
 
-                if (activity.MembersAdded?.Any(IsChatbot) ?? false)
-                    returnActivity = activity.CreateReply("Hi, welcome to PC Bot.");
-            }
+            string response;
+            if (activity.MembersAdded?.Any(IsChatbot) ?? false)
+                response = IsFirstVisit(user) ? "Hi, welcome to PC Bot." : "Welcome back.";
             else
-            {
-                returnActivity = activity.CreateReply("Welcome back.");
-            }
+                return null;
+
+            Activity returnActivity = activity.CreateReply(response);
 
             user.LastVisit = DateTime.Now;
             userData.SetProperty<UserInfo>(UserInfoProperty, user);
@@ -135,7 +131,7 @@ namespace PCBot
                 $"Pingback From - ID: {activity.From.Id}, Name: {activity.From.Name}");
         }
 
-        Activity ReactToUserRemoved(Activity activity)
+        Activity ReactToUserTyping(Activity activity)
         {
             return activity.CreateReply(
                 $"I see that you're typing. I'll be annoying and interrupt you.");

@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.Dialogs.Internals;
-using Microsoft.Bot.Builder.Internals.Scorables;
+using Microsoft.Bot.Builder.Scorables.Internals;
 
 namespace BugDialogBot
 {
@@ -19,19 +19,11 @@ namespace BugDialogBot
 
         protected override async Task<string> PrepareAsync(IActivity activity, CancellationToken token)
         {
-            var regex = new Regex("help", RegexOptions.IgnoreCase);
-            var message = activity as IMessageActivity;
-            if (message != null && message.Text != null)
-            {
-                var text = message.Text;
-                var match = regex.Match(text);
-                if (match.Success)
-                {
-                    return match.Groups[0].Value;
-                }
-            }
+            var text = (activity as IMessageActivity)?.Text ?? "";
+            var regex = new Regex("/help", RegexOptions.IgnoreCase);
+            var match = regex.Match(text);
 
-            return null;
+            return match.Success ? match.Groups[0].Value : null;
         }
 
         protected override bool HasScore(IActivity item, string state)
