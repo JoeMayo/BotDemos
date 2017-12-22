@@ -17,13 +17,12 @@ namespace BugDialogBot
 
         void RegisterScorables()
         {
-            var builder = new ContainerBuilder();
-
-            builder.RegisterType<HelpScorable>()
-                .As<IScorable<IActivity, double>>()
-                .InstancePerLifetimeScope();
-
-            builder.Update(Conversation.Container);
+            Conversation.UpdateContainer(builder =>
+            {
+                builder.RegisterType<HelpScorable>()
+                    .As<IScorable<IActivity, double>>()
+                    .InstancePerLifetimeScope();
+            });
         }
     }
 }

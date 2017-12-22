@@ -13,9 +13,10 @@ namespace BugDialogBot
         PlatformOptions platformOptions;
         string description;
         
-        public async Task StartAsync(IDialogContext context)
+        public Task StartAsync(IDialogContext context)
         {
             context.Wait(ConversationStartedAsync);
+            return Task.CompletedTask;
         }
 
         public async Task ConversationStartedAsync(IDialogContext context, IAwaitable<IMessageActivity> argument)
