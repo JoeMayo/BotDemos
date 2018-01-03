@@ -6,7 +6,7 @@ This is where I'm putting any demo code for bots created via the [Microsoft Bot 
 
 This is a bare-bones bot that translates English to Pig Latin. The bot will reply with whatever you type, translated to Pig Latin.
 
-    Note: Also contains an example of how to use the WebChat control.
+> Note: Also contains an example of how to use the WebChat control.
 
 ## PC Bot
 
@@ -27,3 +27,7 @@ Implements dynamic fields in FormFlow (e.g. selection based on updatable data). 
 ## Contact Info Bot
 
 Uses LUIS for natural language understanding.
+
+## LINQ to Twitter FAQ
+
+Shows how to use QnA Maker
