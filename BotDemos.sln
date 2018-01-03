@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.7
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PigLatinBot", "PigLatinBot\PigLatinBot.csproj", "{A8BA1066-5695-4D71-ABB4-65E5A5E0C3D4}"
 EndProject
@@ -31,6 +31,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentations", "Presentati
 		Presentations\BotFrameworkTactics.pptx = Presentations\BotFrameworkTactics.pptx
 		Presentations\IntroBotFramework_2016.pptx = Presentations\IntroBotFramework_2016.pptx
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqToTwitterFAQ", "LinqToTwitterFAQ\LinqToTwitterFAQ.csproj", "{7DA2343B-3CE2-4C7F-B1E0-F7A7B8E35B8E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -140,8 +142,27 @@ Global
 		{3E32D198-EF58-4AEC-A682-E754D8809966}.Release|x64.Build.0 = Release|Any CPU
 		{3E32D198-EF58-4AEC-A682-E754D8809966}.Release|x86.ActiveCfg = Release|Any CPU
 		{3E32D198-EF58-4AEC-A682-E754D8809966}.Release|x86.Build.0 = Release|Any CPU
+		{7DA2343B-3CE2-4C7F-B1E0-F7A7B8E35B8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DA2343B-3CE2-4C7F-B1E0-F7A7B8E35B8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DA2343B-3CE2-4C7F-B1E0-F7A7B8E35B8E}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{7DA2343B-3CE2-4C7F-B1E0-F7A7B8E35B8E}.Debug|ARM.Build.0 = Debug|Any CPU
+		{7DA2343B-3CE2-4C7F-B1E0-F7A7B8E35B8E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7DA2343B-3CE2-4C7F-B1E0-F7A7B8E35B8E}.Debug|x64.Build.0 = Debug|Any CPU
+		{7DA2343B-3CE2-4C7F-B1E0-F7A7B8E35B8E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7DA2343B-3CE2-4C7F-B1E0-F7A7B8E35B8E}.Debug|x86.Build.0 = Debug|Any CPU
+		{7DA2343B-3CE2-4C7F-B1E0-F7A7B8E35B8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DA2343B-3CE2-4C7F-B1E0-F7A7B8E35B8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DA2343B-3CE2-4C7F-B1E0-F7A7B8E35B8E}.Release|ARM.ActiveCfg = Release|Any CPU
+		{7DA2343B-3CE2-4C7F-B1E0-F7A7B8E35B8E}.Release|ARM.Build.0 = Release|Any CPU
+		{7DA2343B-3CE2-4C7F-B1E0-F7A7B8E35B8E}.Release|x64.ActiveCfg = Release|Any CPU
+		{7DA2343B-3CE2-4C7F-B1E0-F7A7B8E35B8E}.Release|x64.Build.0 = Release|Any CPU
+		{7DA2343B-3CE2-4C7F-B1E0-F7A7B8E35B8E}.Release|x86.ActiveCfg = Release|Any CPU
+		{7DA2343B-3CE2-4C7F-B1E0-F7A7B8E35B8E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CB7096EC-5AA2-4306-A232-DAF3BE125568}
 	EndGlobalSection
 EndGlobal
